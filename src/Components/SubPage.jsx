@@ -4,9 +4,9 @@ import { Container, Jumbotron } from "react-bootstrap";
 function Board() {
   return (
     <div>
-      <Jumbotron fluid className="p-0 text-center">
+      <Jumbotron fluid>
         <Container fluid>
-          <h1 className="display-3">Header Text</h1>
+          <h1 className="display-3 p-0 text-center">Header Text</h1>
           <p className="lead">
             This is a modified jumbotron that occupies the entire horizontal
             space of its parent.
