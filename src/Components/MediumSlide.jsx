@@ -1,6 +1,6 @@
 import React from "react";
 import DesktopImage from "../Images/backgroundImageWorks.jpg";
-import { Badge, Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 
 function MediumSlide() {
   return (
