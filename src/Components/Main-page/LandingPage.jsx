@@ -7,8 +7,8 @@ function MainPage() {
   return (
     <>
       <MediumSlide />
-      <SubPage />
-      <Footer />
+      {/* <SubPage /> */}
+      {/* <Footer /> */}
     </>
   );
 }
