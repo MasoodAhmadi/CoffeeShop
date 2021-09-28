@@ -29,14 +29,70 @@ function MediumSlide() {
         >
           <Container className="pt-5" style={{ zIndex: "1" }}>
             <Jumbotron
-              className="mb-4 pt-3"
-              style={{ height: "100%", backgroundColor: "#0000004D" }}
+              className="mb-3 pt-5"
+              style={{
+                height: "100%",
+                backgroundColor: "#0000004D",
+                margin: "4rem",
+              }}
             >
               <Container className="m-0 p-0">
-                <h1 className="mb-5">ABC</h1>
+                {/* <h1 className="mb-5">ABC</h1> */}
                 <Container>
                   <Row>
-                    <Col xs={8} md={5} /*  lg={6} */ className="mb-2">
+                    <Col xs={8} md={6} /*  lg={6} */ className="mt-5">
+                      <div
+                        style={{
+                          padding: "1.5rem",
+                          borderRadius: "0.3rem",
+                        }}
+                      >
+                        <div className="mb-2 pb-1">
+                          <h2
+                            className="mr-3"
+                            style={{ color: "#ffffff", textAlign: "center" }}
+                          >
+                            Where:
+                          </h2>
+                        </div>
+                      </div>
+                    </Col>
+                    {/*  */}
+
+                    {/* <Col xs={8} md={1} lg={1}  className="mb-1">
+                      <div
+                      
+                      >
+                        <div className="mb-4 pb-5">
+                         
+                          <p className="mr-04" style={{ color: "#ffffff" }}>
+                            to
+                          </p>
+                          
+                        </div>
+                      </div>
+                    </Col> */}
+                    {/*  */}
+                    <Col xs={8} md={6} /*  lg={5} */ className="mt-5">
+                      <div
+                        style={{
+                          padding: "0rem",
+                          borderRadius: "0.3rem",
+                        }}
+                      >
+                        <div className="mb-4 pb-2">
+                          <h2
+                            className="mr-4"
+                            style={{ color: "#ffffff", textAlign: "center" }}
+                          >
+                            Distination:
+                          </h2>
+                        </div>
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={8} md={6} /*  lg={6} */ className="mb-2">
                       <div
                         style={{
                           height: "100%",
@@ -54,25 +110,23 @@ function MediumSlide() {
                     </Col>
                     {/*  */}
 
-                    <Col xs={8} md={1} /* lg={1} */ className="mb-1">
+                    {/* <Col xs={8} md={1} lg={1}  className="mb-1">
                       <div
-                      /*  style={{
-                          height: "50%",
-                        }} */
+                      
                       >
                         <div className="mb-4 pb-5">
-                          {/*   <h2 className="mr-04" style={{ color: "#ffffff" }}> */}
+                         
                           <p className="mr-04" style={{ color: "#ffffff" }}>
                             to
                           </p>
-                          {/* </h2> */}
+                          
                         </div>
                       </div>
-                    </Col>
+                    </Col> */}
                     {/*  */}
                     <Col
                       xs={8}
-                      md={5} /*  lg={5} */
+                      md={6} /*  lg={5} */
                       className="mb-2"
                       style={{ paddingRight: "-1rem" }}
                     >
