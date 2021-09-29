@@ -15,7 +15,7 @@ import { finlandCity } from "../utils/data";
 
 function MediumSlide({ defaultCity, setDefaultCity }) {
   const [searchInput, setSearchInput] = useState("");
-  const [city, setCities] = useState([]);
+  //const [city, setCities] = useState([]);
   //const [defaultCity, setDefaultCity] = useState("Helsinki");
 
   const handleSearch = (e) => {
