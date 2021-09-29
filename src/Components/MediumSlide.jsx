@@ -11,52 +11,52 @@ function MediumSlide() {
           display: "flex",
         }}
       >
-        <div>
-          <p className="m-3 text-white">
+        {/* <div> */}
+        {/*  <p className="m-3 text-white">
             <h4>check out our</h4> <br />
             <h3>Best Cousine</h3>
-          </p>
+          </p> */}
 
-          <Jumbotron className="p-5 mt-0" style={{ width: "70rem" }}>
-            <div style={{ backgroundColor: "#0000009D" }}>
-              <Row>
-                <Form>
-                  <Row>
-                    <Col className="mt-3" style={{ flexBasis: "10rem" }}>
-                      <Form.Label className="p-2" style={{ color: "#fff" }}>
-                        Text here
-                      </Form.Label>
-                      <Form.Control placeholder="Text here 1" />
-                    </Col>
-                    <Col className="mt-3" style={{ flexBasis: "10rem" }}>
-                      <Form.Label className="p-2" style={{ color: "#fff" }}>
-                        Text here
-                      </Form.Label>
-                      <Form.Control placeholder="Text here 2" />
-                    </Col>
-                  </Row>
-                  <br />
-                  <br />
-                  <Row>
-                    <Col className="mt-3" style={{ flexBasis: "10rem" }}>
-                      <Form.Label className="p-2" style={{ color: "#fff" }}>
-                        Text here
-                      </Form.Label>
-                      <Form.Control className="p-2" placeholder="Text here 3" />
-                    </Col>
-                    <Col className="mt-3" style={{ flexBasis: "10rem" }}>
-                      <Form.Label className="p-2" style={{ color: "#fff" }}>
-                        Text here
-                      </Form.Label>
-                      <Form.Control placeholder="Text here 4" />
-                    </Col>
-                  </Row>
-                  <Button>Search</Button>
-                </Form>
-              </Row>
-            </div>
-          </Jumbotron>
-        </div>
+        <Jumbotron className="p-5 mt-0" style={{ width: "70rem" }}>
+          <div style={{ backgroundColor: "#0000009D" }}>
+            <Row>
+              <Form>
+                <Row>
+                  <Col className="mt-3" /* style={{ flexBasis: "10rem" }} */>
+                    <Form.Label className="p-2" style={{ color: "#fff" }}>
+                      Text here
+                    </Form.Label>
+                    <Form.Control placeholder="Text here 1" />
+                  </Col>
+                  <Col className="mt-3" /* style={{ flexBasis: "10rem" }} */>
+                    <Form.Label className="p-2" style={{ color: "#fff" }}>
+                      Text here
+                    </Form.Label>
+                    <Form.Control placeholder="Text here 2" />
+                  </Col>
+                </Row>
+                <br />
+                <br />
+                <Row>
+                  <Col className="mt-3" /* style={{ flexBasis: "10rem" }} */>
+                    <Form.Label className="p-2" style={{ color: "#fff" }}>
+                      Text here
+                    </Form.Label>
+                    <Form.Control className="p-2" placeholder="Text here 3" />
+                  </Col>
+                  <Col className="mt-3" /* style={{ flexBasis: "10rem" }} */>
+                    <Form.Label className="p-2" style={{ color: "#fff" }}>
+                      Text here
+                    </Form.Label>
+                    <Form.Control placeholder="Text here 4" />
+                  </Col>
+                </Row>
+                <Button>Search</Button>
+              </Form>
+            </Row>
+          </div>
+        </Jumbotron>
+        {/*  </div> */}
       </Container>
     </>
   );
