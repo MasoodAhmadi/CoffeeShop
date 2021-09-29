@@ -10,8 +10,8 @@ import {
   ListGroup,
 } from "react-bootstrap";
 import { finlandCity } from "../utils/data";
-import axios from "axios";
-import useSWR from "swr";
+//import axios from "axios";
+//import useSWR from "swr";
 
 function MediumSlide({ defaultCity, setDefaultCity }) {
   const [searchInput, setSearchInput] = useState("");
@@ -140,12 +140,12 @@ function MediumSlide({ defaultCity, setDefaultCity }) {
 }
 
 export default MediumSlide;
-/** 
+/**
  *  <Container
         className="p-5 mt-5 mr-5"
         style={{ height: "100vh", display: "flex" }}
       >
-       
+
         <Jumbotron className="p-5 mt-0">
           <div style={{ backgroundColor: "#0000009D" }}>
             <Row>
@@ -216,6 +216,6 @@ export default MediumSlide;
 
           <Button>Search</Button>
         </Jumbotron>
-        
+
       </Container>
  */
