@@ -1,7 +1,44 @@
-import React from "react";
-import { Col, Container, Jumbotron, Row, Button, Form } from "react-bootstrap";
+import React, { useState } from "react";
+import {
+  Col,
+  Container,
+  Jumbotron,
+  Row,
+  Button,
+  Form,
+  FormControl,
+  ListGroup,
+} from "react-bootstrap";
+import { finlandCity } from "../utils/data";
+import axios from "axios";
+import useSWR from "swr";
 
-function MediumSlide() {
+function MediumSlide({ defaultCity, setDefaultCity }) {
+  const [searchInput, setSearchInput] = useState("");
+  const [city, setCities] = useState([]);
+  //const [defaultCity, setDefaultCity] = useState("Helsinki");
+
+  const handleSearch = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  /* const fetcher = (url) => axios.get(url).then((res) => res.data);
+
+  const { data: allCities } = useSWR(finlandCity, fetcher); */
+
+  console.log("data here", searchInput);
+  //console.log("data here", allCities);
+
+  const filterCity = finlandCity.filter((allC) => {
+    if (
+      searchInput &&
+      !allC.city.toLowerCase().includes(searchInput.toLowerCase())
+    ) {
+      return false;
+    }
+    return true;
+  });
+
   return (
     <>
       <Container
@@ -11,44 +48,84 @@ function MediumSlide() {
           display: "flex",
         }}
       >
-        {/* <div> */}
-        {/*  <p className="m-3 text-white">
-            <h4>check out our</h4> <br />
-            <h3>Best Cousine</h3>
-          </p> */}
-
         <Jumbotron className="p-5 mt-0" style={{ width: "70rem" }}>
           <div style={{ backgroundColor: "#0000009D" }}>
             <Row>
               <Form>
                 <Row>
-                  <Col className="mt-3" /* style={{ flexBasis: "10rem" }} */>
-                    <Form.Label className="p-2" style={{ color: "#fff" }}>
-                      Text here
+                  <Col className="mt-3" style={{ flexBasis: "15rem" }}>
+                    <Form.Label
+                      className="p-2"
+                      style={{ color: "#fff", zIndex: 2 }}
+                    >
+                      <p>where</p>
+                      <FormControl
+                        placeholder="from"
+                        onChange={(e) => handleSearch(e)}
+                      />
+                      <ListGroup
+                        variant="flush"
+                        style={{
+                          color: "#000000",
+                          position: "absolute",
+                          backgroundColor: "#ffffff",
+                        }}
+                      >
+                        {filterCity && (
+                          <>
+                            <div
+                              style={{
+                                marginTop: "5px",
+                                width: "207px",
+                                height: "150px",
+                                boxShadow: "rgba(0,0,0,35) 0px 5px 15px",
+                                overflow: "hidden",
+                                overflowY: "auto",
+                              }}
+                            >
+                              {filterCity.map((city, index) => (
+                                <ListGroup.Item key={index}>
+                                  <p className="pl-1">{city.city}</p>
+                                </ListGroup.Item>
+                              ))}
+                            </div>
+                          </>
+                        )}
+                      </ListGroup>
                     </Form.Label>
-                    <Form.Control placeholder="Text here 1" />
                   </Col>
-                  <Col className="mt-3" /* style={{ flexBasis: "10rem" }} */>
-                    <Form.Label className="p-2" style={{ color: "#fff" }}>
-                      Text here
+                  <Col className="mt-3" style={{ flexBasis: "15rem" }}>
+                    <Form.Label
+                      className="p-2"
+                      style={{ color: "#fff", zIndex: 2 }}
+                    >
+                      <p>destination</p>
                     </Form.Label>
-                    <Form.Control placeholder="Text here 2" />
+                    <Form.Control placeholder="to" />
                   </Col>
                 </Row>
                 <br />
                 <br />
                 <Row>
-                  <Col className="mt-3" /* style={{ flexBasis: "10rem" }} */>
-                    <Form.Label className="p-2" style={{ color: "#fff" }}>
-                      Text here
+                  <Col className="mt-3" style={{ flexBasis: "15rem" }}>
+                    <Form.Label
+                      className="p-2"
+                      style={{ color: "#fff" }}
+                      onChange={() => handleSearch()}
+                    >
+                      departure date & time
                     </Form.Label>
-                    <Form.Control className="p-2" placeholder="Text here 3" />
+                    <Form.Control className="p-2" placeholder="choose time" />
                   </Col>
-                  <Col className="mt-3" /* style={{ flexBasis: "10rem" }} */>
-                    <Form.Label className="p-2" style={{ color: "#fff" }}>
-                      Text here
+                  <Col className="mt-3" style={{ flexBasis: "15rem" }}>
+                    <Form.Label
+                      className="p-2"
+                      style={{ color: "#fff" }}
+                      onChange={() => handleSearch()}
+                    >
+                      train model
                     </Form.Label>
-                    <Form.Control placeholder="Text here 4" />
+                    <Form.Control placeholder="type here" />
                   </Col>
                 </Row>
                 <Button>Search</Button>

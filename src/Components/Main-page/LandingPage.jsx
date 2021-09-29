@@ -3,10 +3,10 @@ import React from "react";
 //import Footer from "../Footer";
 import MediumSlide from "../MediumSlide";
 
-function MainPage() {
+function MainPage({ setDefaultCity, defaultCity }) {
   return (
     <>
-      <MediumSlide />
+      <MediumSlide setDefaultCity={setDefaultCity} defaultCity={defaultCity} />
       {/*    <SubPage />
       <Footer /> */}
     </>
