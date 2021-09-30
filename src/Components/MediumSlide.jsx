@@ -1,34 +1,20 @@
 import React, { useState } from "react";
-import {
-  Col,
-  Container,
-  Jumbotron,
-  Row,
-  Button,
-  Form,
-  FormControl,
-  ListGroup,
-} from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import { Col, Container, Jumbotron, Row, Button } from "react-bootstrap";
+import Select from "react-select";
 import { finlandCity } from "../utils/data";
-import axios from "axios";
-import useSWR from "swr";
+/* import axios from "axios";
+import useSWR from "swr"; */
 
-function MediumSlide({ defaultCity, setDefaultCity }) {
+function MediumSlide() {
   const [searchInput, setSearchInput] = useState("");
-  const [city, setCities] = useState([]);
+  //const [city, setCities] = useState([]);
   //const [defaultCity, setDefaultCity] = useState("Helsinki");
 
-  const handleSearch = (e) => {
+  /* const handleSearch = (e) => {
     setSearchInput(e.target.value);
-  };
-
-  /* const fetcher = (url) => axios.get(url).then((res) => res.data);
-
-  const { data: allCities } = useSWR(finlandCity, fetcher); */
-
-  console.log("data here", searchInput);
-  //console.log("data here", allCities);
-
+  }; */
+  console.log("", setSearchInput);
   const filterCity = finlandCity.filter((allC) => {
     if (
       searchInput &&
@@ -59,40 +45,19 @@ function MediumSlide({ defaultCity, setDefaultCity }) {
                       style={{ color: "#fff", zIndex: 2 }}
                     >
                       <p>where</p>
-                      <FormControl
-                        placeholder="from"
-                        onChange={(e) => handleSearch(e)}
-                      />
-                      <ListGroup
-                        variant="flush"
-                        style={{
-                          color: "#000000",
-                          position: "absolute",
-                          backgroundColor: "#ffffff",
-                        }}
-                      >
-                        {filterCity && (
-                          <>
-                            <div
-                              style={{
-                                marginTop: "5px",
-                                width: "207px",
-                                height: "150px",
-                                boxShadow: "rgba(0,0,0,35) 0px 5px 15px",
-                                overflow: "hidden",
-                                overflowY: "auto",
-                              }}
-                            >
-                              {filterCity.map((city, index) => (
-                                <ListGroup.Item key={index}>
-                                  <p className="pl-1">{city.city}</p>
-                                </ListGroup.Item>
-                              ))}
-                            </div>
-                          </>
-                        )}
-                      </ListGroup>
                     </Form.Label>
+
+                    <Select
+                      isMulti
+                      name="cities"
+                      onMenuOpen={filterCity}
+                      options={filterCity.map((i) => ({
+                        label: i.city,
+                        value: i.country,
+                      }))}
+                      className="basic-multi-select"
+                      classNamePrefix="select"
+                    />
                   </Col>
                   <Col className="mt-3" style={{ flexBasis: "15rem" }}>
                     <Form.Label
@@ -101,7 +66,17 @@ function MediumSlide({ defaultCity, setDefaultCity }) {
                     >
                       <p>destination</p>
                     </Form.Label>
-                    <Form.Control placeholder="to" />
+                    <Select
+                      isMulti
+                      name="cities"
+                      onMenuOpen={filterCity}
+                      options={filterCity.map((i) => ({
+                        label: i.city,
+                        value: i.country,
+                      }))}
+                      className="basic-multi-select"
+                      classNamePrefix="select"
+                    />
                   </Col>
                 </Row>
                 <br />
@@ -111,7 +86,7 @@ function MediumSlide({ defaultCity, setDefaultCity }) {
                     <Form.Label
                       className="p-2"
                       style={{ color: "#fff" }}
-                      onChange={() => handleSearch()}
+                      onChange={() => console("text here")}
                     >
                       departure date & time
                     </Form.Label>
@@ -121,7 +96,7 @@ function MediumSlide({ defaultCity, setDefaultCity }) {
                     <Form.Label
                       className="p-2"
                       style={{ color: "#fff" }}
-                      onChange={() => handleSearch()}
+                      onChange={() => console("text here")}
                     >
                       train model
                     </Form.Label>
