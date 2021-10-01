@@ -1,6 +1,6 @@
 import React from "react";
 
-function Feature() {
+function SideBar() {
   return (
     <div>
       adfadfa
@@ -24,7 +24,7 @@ function Feature() {
   );
 }
 
-export default Feature;
+export default SideBar;
 
 /* 
 <div

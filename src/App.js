@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router";
 import LandingPage from "./Components/Main-page/LandingPage";
 import Feature from "./Components/Features";
 import Prices from "./Components/Pricing";
+import OrderFood from "./Components/OrderFood";
 
 function App() {
   //const [defaultCity, setDefaultCity] = useState("Helsinki");
@@ -30,7 +31,7 @@ function App() {
 
         <Route path="/pricing" render={(props) => <Prices {...props} />} />
 
-        <Route path="/features" render={(props) => <Feature {...props} />} />
+        <Route path="/orders" render={(props) => <OrderFood {...props} />} />
 
         <Route path="/features" render={(props) => <Feature {...props} />} />
 

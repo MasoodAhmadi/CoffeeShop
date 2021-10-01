@@ -4,8 +4,10 @@ import { Col, Container, Jumbotron, Row, Button } from "react-bootstrap";
 import Select from "react-select";
 import { finlandCity } from "../utils/data";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 function MediumSlide({ searchInput, setSearchInput }) {
+  const history = useHistory();
   const [trains, setTrains] = useState([]);
   //const [trainNumber, setTrainNumber] = useState([]);
   //const [trainType, setTrainType] = useState([]);
@@ -105,6 +107,7 @@ function MediumSlide({ searchInput, setSearchInput }) {
                       className="p-2"
                       type="datetime-local"
                       placeholder="choose time"
+                      style={{ marginTop: "0rem" }}
                     />
                   </Col>
                   <Col className="mt-3" style={{ flexBasis: "15rem" }}>
@@ -129,7 +132,7 @@ function MediumSlide({ searchInput, setSearchInput }) {
                     {/* <Form.Control placeholder="type here" /> */}
                   </Col>
                 </Row>
-                <Button>Search</Button>
+                <Button onClick={() => history.push("/orders")}>Search</Button>
               </Form>
             </Row>
           </div>
