@@ -1,20 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { Col, Container, Jumbotron, Row, Button } from "react-bootstrap";
 import Select from "react-select";
 import { finlandCity } from "../utils/data";
-/* import axios from "axios";
-import useSWR from "swr"; */
+import axios from "axios";
 
-function MediumSlide() {
-  const [searchInput, setSearchInput] = useState("");
-  //const [city, setCities] = useState([]);
-  //const [defaultCity, setDefaultCity] = useState("Helsinki");
+function MediumSlide({ searchInput, setSearchInput }) {
+  const [trains, setTrains] = useState([]);
+  //const [trainNumber, setTrainNumber] = useState([]);
+  //const [trainType, setTrainType] = useState([]);
 
-  /* const handleSearch = (e) => {
-    setSearchInput(e.target.value);
-  }; */
-  console.log("", setSearchInput);
+  const getTrainModel = async () => {
+    try {
+      axios
+        .get("https://rata.digitraffic.fi/api/v1/live-trains?version=0")
+        .then((res) => res.data)
+
+        .then((res) => {
+          setTrains(res);
+        });
+    } catch (error) {}
+  };
+  useEffect(() => {
+    getTrainModel();
+  }, []);
+
+  //console.log("trains", trains);
   const filterCity = finlandCity.filter((allC) => {
     if (
       searchInput &&
@@ -90,7 +101,11 @@ function MediumSlide() {
                     >
                       departure date & time
                     </Form.Label>
-                    <Form.Control className="p-2" placeholder="choose time" />
+                    <Form.Control
+                      className="p-2"
+                      type="datetime-local"
+                      placeholder="choose time"
+                    />
                   </Col>
                   <Col className="mt-3" style={{ flexBasis: "15rem" }}>
                     <Form.Label
@@ -100,7 +115,18 @@ function MediumSlide() {
                     >
                       train model
                     </Form.Label>
-                    <Form.Control placeholder="type here" />
+                    <Select
+                      isMulti
+                      name="cities"
+                      /* onMenuOpen={filterCity} */
+                      options={trains.map((i) => ({
+                        label: i.trainType + i.trainNumber,
+                        value: i.trainType + i.trainNumber,
+                      }))}
+                      className="basic-multi-select"
+                      classNamePrefix="select"
+                    />
+                    {/* <Form.Control placeholder="type here" /> */}
                   </Col>
                 </Row>
                 <Button>Search</Button>
@@ -108,7 +134,6 @@ function MediumSlide() {
             </Row>
           </div>
         </Jumbotron>
-        {/*  </div> */}
       </Container>
     </>
   );
