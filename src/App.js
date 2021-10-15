@@ -1,19 +1,15 @@
 import React, { useState } from "react";
-import Navbar from "./Components/Navbar";
 import { Route, Switch } from "react-router";
-import LandingPage from "./Components/Main-page/LandingPage";
-import Feature from "./Components/Features";
-import Prices from "./Components/Pricing";
-import OrderFood from "./Components/OrderFood";
+import { LandingPage, FoodContent, Navbar } from "./Components";
+import Pra from "./Components/Reusable-components/pra";
 
 function App() {
-  //const [defaultCity, setDefaultCity] = useState("Helsinki");
-  const [searchInput, setSearchInput] = useState("");
+  const [searchField, setSearchInput] = useState("");
 
   return (
     <>
       <Navbar />
-      {/* <MediumSlide /> */}
+
       <Switch>
         <Route
           exact
@@ -21,21 +17,14 @@ function App() {
           render={(props) => (
             <LandingPage
               {...props}
-              searchInput={searchInput}
+              searchField={searchField}
               setSearchInput={setSearchInput}
             />
           )}
         />
 
-        <Route path="/features" render={(props) => <Feature {...props} />} />
-
-        <Route path="/pricing" render={(props) => <Prices {...props} />} />
-
-        <Route path="/orders" render={(props) => <OrderFood {...props} />} />
-
-        <Route path="/features" render={(props) => <Feature {...props} />} />
-
-        <Route path="/features" render={(props) => <Feature {...props} />} />
+        <Route path="/orders" render={(props) => <FoodContent {...props} />} />
+        <Route path="/pra" render={(props) => <Pra {...props} />} />
       </Switch>
     </>
   );

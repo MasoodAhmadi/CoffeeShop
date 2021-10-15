@@ -1,12 +1,12 @@
 import React from "react";
 //import SubPage from "../SubPage";
 //import Footer from "../Footer";
-import MediumSlide from "../MediumSlide";
+import OrderForm from "../OrderForm";
 
-function MainPage({ setDefaultCity, defaultCity }) {
+function MainPage({ searchField, setSearchField }) {
   return (
     <>
-      <MediumSlide setDefaultCity={setDefaultCity} defaultCity={defaultCity} />
+      <OrderForm searchInput={searchField} setSearchField={setSearchField} />
       {/*    <SubPage />
       <Footer /> */}
     </>
