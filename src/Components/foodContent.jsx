@@ -35,22 +35,22 @@ function FoodContent({ searchField }) {
     getFoodData();
   }, []);
 
-  const filterItems = allData.filter((m) => {
+  const filterItems = allData.filter((el) => {
     if (
       searchField &&
-      !m.item.toLowerCase().includes(searchField.toLowerCase())
+      !el.item.toLowerCase().includes(searchField.toLowerCase())
     ) {
       return false;
     }
     if (
       itemSelect.length > 0 &&
-      !itemSelect.some((catagory) => m.foodChoices.includes(catagory))
+      !itemSelect.some((catagory) => el.foodChoices.includes(catagory))
     ) {
       return false;
     }
     if (
       searchItemField &&
-      m.ingredient.toLowerCase().includes(searchItemField.toLowerCase())
+      el.ingredient.toLowerCase().includes(searchItemField.toLowerCase())
     ) {
       return false;
     }
