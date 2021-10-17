@@ -10,7 +10,7 @@ import {
   ListGroup,
 } from "react-bootstrap";
 import FootItems from "./Reusable-components/foodItem";
-import { Container, Jumbotron, Row } from "react-bootstrap";
+import { Container, Jumbotron, Button, Row } from "react-bootstrap";
 import { Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Pagination from "../Components/Reusable-components/Pagination";
 
@@ -92,49 +92,64 @@ function FoodContent({ searchField }) {
   console.log("select", select);
   return (
     <>
-      <div className="m-2">
+      <div className="m-2" style={{ height: "100vh", width: "100%" }}>
         <Container
           style={{
             backgroundColor: "#fff",
             display: "block",
             marginLeft: "auto",
             marginRight: "auto",
-            height: "100vh",
+            // height: "100vh",
           }}
         >
           <Jumbotron>
             <Container className="m-4 pt-5">
               <>
-                <Row>
-                  <Col sm={12} md={10} lg={3} /* my={1} */>
-                    <Count item={filterItems} label="result" />
-                  </Col>
-                  <Col sm={12} md={10} lg={9}>
-                    <ListGroup horizontal style={{ width: "100%" }}>
-                      {mealClass.map((item) => {
-                        return (
-                          <ListGroup.Item
-                            key={item.id}
-                            style={{
-                              margin: "1.1rem",
-                              width: "100px",
-                            }}
-                          >
-                            {item.label}
-                          </ListGroup.Item>
-                        );
-                      })}
-                    </ListGroup>
-                  </Col>
-                </Row>
-                <Row>
-                  <>
+                <Container>
+                  <Row>
+                    <Col sm={12} md={10} lg={3} /* my={1} */>
+                      <Count item={filterItems} label="result" />
+                    </Col>
+                    <Col sm={12} md={10} lg={9}>
+                      <ListGroup horizontal>
+                        {mealClass.map((item) => {
+                          return (
+                            // <ListGroup.Item
+                            //   key={item.id}
+                            //   style={{
+                            //     margin: "1.1rem",
+                            //     width: "100%",
+                            //   }}
+                            // >
+                            //   {item.label}
+                            // </ListGroup.Item>
+                            <Button
+                              key={item.id}
+                              variant="secondary"
+                              style={{
+                                margin: "0.9rem",
+                                width: "100%",
+                                backgroundColor: "none",
+                              }}
+                            >
+                              {" "}
+                              {item.label}
+                            </Button>
+                          );
+                        })}
+                      </ListGroup>
+                    </Col>
+                  </Row>
+                </Container>
+                <Container /* style={{ width: "100%" }} */>
+                  <Row>
                     <Col sm={12} md={10} lg={3}>
                       <Card
                         style={{
                           height: "50rem",
                           backgroundColor: "black",
                           borderRadius: "26px",
+                          width: "100%",
                         }}
                       >
                         <Card.Body className="text-right m-3">
@@ -172,7 +187,7 @@ function FoodContent({ searchField }) {
                               className="mt-4"
                               style={{ color: "#fff" }}
                             >
-                              <Col sm={10}>
+                              <Col /*sm={10}*/>
                                 {select.foodChoices &&
                                   select.foodChoices?.map((i) => {
                                     return (
@@ -228,22 +243,32 @@ function FoodContent({ searchField }) {
                         </Card.Body>
                       </Card>
                     </Col>
-                  </>
-                  <Col sm={12} md={10} lg={9}>
-                    {/*   <Container> */}
-                    <FootItems data={paginatedItem} />
-                    <Container className="justify-content-center mt-2">
-                      <Pagination
-                        pageSize={pageSize}
-                        onNextPage={onNextPage}
-                        currentPage={currentPage}
-                        onPageChange={handlePageChange}
-                        onPreviousPage={onPreviousPage}
-                        itemsCount={filterItems?.length}
-                      />
-                    </Container>
-                  </Col>
-                </Row>
+
+                    <Col sm={12} md={10} lg={9}>
+                      <Container style={{}}>
+                        <FootItems data={paginatedItem} />
+                        <Pagination
+                          pageSize={pageSize}
+                          onNextPage={onNextPage}
+                          currentPage={currentPage}
+                          onPageChange={handlePageChange}
+                          onPreviousPage={onPreviousPage}
+                          itemsCount={filterItems?.length}
+                        />
+                      </Container>
+                      {/* <Container className="">
+                        <Pagination
+                          pageSize={pageSize}
+                          onNextPage={onNextPage}
+                          currentPage={currentPage}
+                          onPageChange={handlePageChange}
+                          onPreviousPage={onPreviousPage}
+                          itemsCount={filterItems?.length}
+                        />
+                      </Container> */}
+                    </Col>
+                  </Row>
+                </Container>
               </>
             </Container>
           </Jumbotron>
@@ -255,7 +280,7 @@ function FoodContent({ searchField }) {
 
 export default FoodContent;
 
-/* 
+/*
 import React, { useEffect, useState } from "react";
 import { Options } from "../utils/Options";
 import { paginate } from "../utils/paginate";
@@ -519,7 +544,7 @@ function FoodContent({ searchField }) {
                     </Col>
                   </>
                   <Col sm={12} md={10} lg={9}>
-                  
+
                     <FootItems data={paginatedItem} />
                     <Container className="justify-content-center mt-2">
                       <Pagination
