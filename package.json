@@ -9,7 +9,11 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.22.0",
     "bootstrap": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "lodash": "^4.17.21",
+    "mongoose": "^6.1.2",
+    "nodemon": "^2.0.15",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
     "react-bootstrap-icons": "^1.5.0",
@@ -26,7 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "mongoos": "nodemon ./server2/server.js"
   },
   "eslintConfig": {
     "extends": [
